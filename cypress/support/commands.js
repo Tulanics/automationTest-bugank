@@ -23,3 +23,40 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+import '../page/LoginPage/LoginPage';
+
+import '../page/RegisterPage/RegisterPage';
+
+export function registrarUsuario(){
+    
+    //const password = faker.internet.password()
+    cy.clickRegisterButton();
+    cy.typeEmail("test@test.com");
+    cy.typeName('Test');
+    
+    cy.typePassword("@pass123");
+    cy.typeRepeatedPassword("@pass123");
+
+    cy.clickToogleAddBalance();
+    cy.clickForRegisterCount();
+    //const accountNumber = cy.getAccountNumber();
+    cy.clickCloseModal();
+
+
+
+   // return accountNumber;
+
+}
+
+
+export function loginUser(){
+    const userName = "test"
+    const password = "pass123"
+
+    cy.typeUsername(userName);
+    cy.typePassword(password);
+    cy.clickLogin();
+}
+
+
